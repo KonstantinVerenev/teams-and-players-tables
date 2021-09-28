@@ -11,11 +11,30 @@ function SearchBar(props) {
         onChange={props.searchBarOnChange}
       />
       <label>
-        Goalkeeper
+        Goalkeepers
         <input
           type="checkbox"
-          checked={props.checkBoxValues.goalkeeperCheckBox}
-          onChange={props.goalkeeperCheckBoxOnChange}
+          name='goalkeeper'
+          checked={props.checkBoxValues.goalkeeper}
+          onChange={props.CheckBoxesOnChange}
+        />
+      </label>
+      <label>
+        Midfielder
+        <input
+          type="checkbox"
+          name='midfielder'
+          checked={props.checkBoxValues.midfielder}
+          onChange={props.CheckBoxesOnChange}
+        />
+      </label>
+      <label>
+        Attacker
+        <input
+          type="checkbox"
+          name='attacker'
+          checked={props.checkBoxValues.attacker}
+          onChange={props.CheckBoxesOnChange}
         />
       </label>
     </form>
