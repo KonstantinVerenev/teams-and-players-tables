@@ -8,7 +8,7 @@ function Table(props) {
 
   const tableRows = []
 
-  props.data.squad.forEach(player => {
+  props.squadData.forEach(player => {
     if (player.name.toLowerCase().indexOf(props.searchValue.toLowerCase()) === -1) {
       return
     } else if (props.checkBoxValues.goalkeeper && player.position !== 'Goalkeeper') {
@@ -28,8 +28,10 @@ function Table(props) {
     <div>
       <table>
         <thead>
-          <td>Name</td>
-          <td>Position</td>
+          <tr>
+            <th onClick={() => props.sortData('name')}>Name</th>
+            <th onClick={() => props.sortData('position')}>Position</th>
+          </tr>
         </thead>
         <tbody>
           {tableRows}

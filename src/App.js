@@ -34,6 +34,43 @@ function App() {
     })
   }
 
+  const sortData = (columnName) => {
+
+    // sorting with null function
+    function alphabetically(ascending, columnName) {
+      return function (a, b) {
+        // equal items sort equally
+        if (a[columnName] === b[columnName]) {
+          return 0;
+        }
+        // nulls sort after anything else
+        else if (a[columnName] === null) {
+          return 1;
+        }
+        else if (b[columnName] === null) {
+          return -1;
+        }
+        // otherwise, if we're ascending, lowest sorts first
+        else if (ascending) {
+          return a[columnName] < b[columnName] ? -1 : 1;
+        }
+        // if descending, highest sorts first
+        else {
+          return a[columnName] < b[columnName] ? 1 : -1;
+        }
+      };
+    }
+
+
+    console.log(teamData.squad)
+    const sortedData = teamData.squad.slice().sort(alphabetically(true, columnName))
+    console.log(sortedData)
+    setTeamData({
+      ...teamData,
+      squad: sortedData
+    })
+  }
+
   if (!teamData) {
     return <Preloader />
   }
@@ -45,7 +82,7 @@ function App() {
         <img src={teamData.crestUrl} alt='logo' width='24' />
       </div>
       <SearchBar searchValue={searchValue} searchBarOnChange={searchBarOnChange} checkBoxValues={checkBoxValues} CheckBoxesOnChange={CheckBoxesOnChange} />
-      < Table data={teamData} searchValue={searchValue} checkBoxValues={checkBoxValues} />
+      < Table squadData={teamData.squad} searchValue={searchValue} checkBoxValues={checkBoxValues} sortData={sortData} />
     </div>
   );
 }
