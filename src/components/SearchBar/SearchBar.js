@@ -8,7 +8,7 @@ function SearchBar(props) {
         type="text"
         placeholder="Поиск..."
         value={props.searchValue}
-        onChange={props.searchBarOnChange}
+        onChange={props.searchValueOnChange}
       />
       <label>
         Goalkeepers
