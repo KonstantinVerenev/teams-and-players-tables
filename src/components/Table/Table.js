@@ -14,6 +14,8 @@ function Table(props) {
       return
     } else if (props.checkBoxValues.goalkeeper && player.position !== 'Goalkeeper') {
       return
+    } else if (props.checkBoxValues.defender && player.position !== 'Defender') {
+      return
     } else if (props.checkBoxValues.midfielder && player.position !== 'Midfielder') {
       return
     } else if (props.checkBoxValues.attacker && player.position !== 'Attacker') {

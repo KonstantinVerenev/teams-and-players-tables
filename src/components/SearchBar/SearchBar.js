@@ -20,6 +20,15 @@ function SearchBar(props) {
         />
       </label>
       <label>
+        Defender
+        <input
+          type="checkbox"
+          name='defender'
+          checked={props.checkBoxValues.defender}
+          onChange={props.CheckBoxesOnChange}
+        />
+      </label>
+      <label>
         Midfielder
         <input
           type="checkbox"

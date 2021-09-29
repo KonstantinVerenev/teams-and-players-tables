@@ -11,6 +11,7 @@ function App() {
   const [sortedDirection, setSortedDirection] = useState(true)
   const [checkBoxValues, setCheckBoxValues] = useState({
     goalkeeper: false,
+    defender: false,
     midfielder: false,
     attacker: false
   })

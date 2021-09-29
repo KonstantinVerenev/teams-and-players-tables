@@ -1,22 +1,16 @@
 import React from "react";
-import downArrow from '../../../assets/images/down-arrow.svg'
-import upArrow from '../../../assets/images/up-arrow.svg'
+import "./TableHeader.css"
 
 function TableHeader(props) {
   if (props.sortedColumn === props.columnName.toLowerCase()) {
     return (
       <>
-        <th onClick={props.sortData}>
-          {props.columnName}
-          {props.sortedDirection
-            ? <img src={upArrow} width='15px' alt='down arrow' />
-            : <img src={downArrow} width='15px' alt='up arrow' />}
-        </th>
+        <th onClick={props.sortData} className={props.sortedDirection ? ' upArrow' : 'downArrow'}>{props.columnName}</th>
       </>
     );
   } else {
     return (
-      <th onClick={props.sortData}>{props.columnName}</th>
+      <th onClick={props.sortData} className='disableArrows'>{props.columnName}</th>
     );
   }
 
