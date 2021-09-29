@@ -1,6 +1,7 @@
 import React from "react";
 import './Table.css'
-import TableRow from "./TableRow/tableRow";
+import TableHeader from "./TableHeader/TableHeader";
+import TableRow from "./TableRow/TableRow";
 
 
 
@@ -29,8 +30,8 @@ function Table(props) {
       <table>
         <thead>
           <tr>
-            <th onClick={() => props.sortData('name')}>Name</th>
-            <th onClick={() => props.sortData('position')}>Position</th>
+            <TableHeader columnName={'Name'} sortData={props.sortData} sortedColumn={props.sortedColumn} sortedDirection={props.sortedDirection} />
+            <TableHeader columnName={'Position'} sortData={props.sortData} sortedColumn={props.sortedColumn} sortedDirection={props.sortedDirection} />
           </tr>
         </thead>
         <tbody>

@@ -5,7 +5,10 @@ import Table from "./components/Table/Table";
 
 function App() {
   const [teamData, setTeamData] = useState()
+  const [sortedTeamData, setSortedTeamData] = useState()
   const [searchValue, setSearchValue] = useState('')
+  const [sortedColumn, setSortedColumn] = useState('')
+  const [sortedDirection, setSortedDirection] = useState(true)
   const [checkBoxValues, setCheckBoxValues] = useState({
     goalkeeper: false,
     midfielder: false,
@@ -34,7 +37,8 @@ function App() {
     })
   }
 
-  const sortData = (columnName) => {
+  const sortData = (e) => {
+    const columnName = e.target.innerText.toLowerCase()
 
     // sorting with null function
     function alphabetically(ascending, columnName) {
@@ -61,14 +65,20 @@ function App() {
       };
     }
 
+    const sortedData = teamData.squad.slice().sort(alphabetically(sortedDirection, columnName))
 
-    console.log(teamData.squad)
-    const sortedData = teamData.squad.slice().sort(alphabetically(true, columnName))
-    console.log(sortedData)
-    setTeamData({
-      ...teamData,
-      squad: sortedData
-    })
+    if (sortedColumn && sortedDirection) {
+      setSortedColumn('')
+      setSortedDirection(true)
+      setSortedTeamData(teamData)
+    } else {
+      setSortedDirection(!sortedDirection)
+      setSortedColumn(columnName)
+      setSortedTeamData({
+        ...teamData,
+        squad: sortedData
+      })
+    }
   }
 
   if (!teamData) {
@@ -82,7 +92,7 @@ function App() {
         <img src={teamData.crestUrl} alt='logo' width='24' />
       </div>
       <SearchBar searchValue={searchValue} searchBarOnChange={searchBarOnChange} checkBoxValues={checkBoxValues} CheckBoxesOnChange={CheckBoxesOnChange} />
-      < Table squadData={teamData.squad} searchValue={searchValue} checkBoxValues={checkBoxValues} sortData={sortData} />
+      <Table squadData={sortedTeamData ? sortedTeamData.squad : teamData.squad} searchValue={searchValue} checkBoxValues={checkBoxValues} sortData={sortData} sortedColumn={sortedColumn} sortedDirection={sortedDirection} />
     </div>
   );
 }
