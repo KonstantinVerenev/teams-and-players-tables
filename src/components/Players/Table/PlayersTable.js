@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import './Table.css'
+import './PlayersTable.css'
 import TableHeader from "./TableHeader/TableHeader";
 import TableRow from "./TableRow/TableRow";
 
 
 
-function Table(props) {
-  const [sortedTeamData, setSortedTeamData] = useState()
+function PlayersTable(props) {
+  const [sortedData, setSortedData] = useState()
   const [sortedColumn, setSortedColumn] = useState('')
   const [sortedDirection, setSortedDirection] = useState(true)
 
@@ -38,39 +38,49 @@ function Table(props) {
       };
     }
 
-    const sortedData = props.teamData.squad.slice().sort(alphabetically(sortedDirection, columnName))
+    const sortedData = props.tableData.squad.slice().sort(alphabetically(sortedDirection, columnName))
 
-    if (sortedColumn && sortedDirection) {
+    if ((sortedColumn && sortedDirection)) {
       setSortedColumn('')
       setSortedDirection(true)
-      setSortedTeamData(props.teamData)
+      setSortedData(props.tableData)
+    } else if (sortedColumn && (sortedColumn !== columnName)) {
+      setSortedColumn('')
+      setSortedDirection(true)
+      setSortedData(props.tableData)
     } else {
-      setSortedDirection(!sortedDirection)
       setSortedColumn(columnName)
-      setSortedTeamData({
-        ...props.teamData,
+      setSortedDirection(!sortedDirection)
+      setSortedData({
+        ...props.tableData,
         squad: sortedData
       })
     }
   }
 
-  const squadData = sortedTeamData ? sortedTeamData.squad : props.teamData.squad
+  const squadData = sortedData ? sortedData.squad : props.tableData.squad
+
   const tableRows = []
 
-  squadData.forEach(player => {
-    if (player.name.toLowerCase().indexOf(props.searchValue.toLowerCase()) === -1) {
+  squadData.forEach(playerData => {
+    if (playerData.name.toLowerCase().indexOf(props.searchValue.toLowerCase()) === -1) {
       return
-    } else if (props.checkBoxValues.goalkeeper && player.position !== 'Goalkeeper') {
+    } else if (props.checkBoxValues.goalkeeper && playerData.position !== 'Goalkeeper') {
       return
-    } else if (props.checkBoxValues.defender && player.position !== 'Defender') {
+    } else if (props.checkBoxValues.defender && playerData.position !== 'Defender') {
       return
-    } else if (props.checkBoxValues.midfielder && player.position !== 'Midfielder') {
+    } else if (props.checkBoxValues.midfielder && playerData.position !== 'Midfielder') {
       return
-    } else if (props.checkBoxValues.attacker && player.position !== 'Attacker') {
+    } else if (props.checkBoxValues.attacker && playerData.position !== 'Attacker') {
       return
     } else {
       tableRows.push(
-        <TableRow key={player.id} name={player.name} position={player.position} />
+        <TableRow
+          key={playerData.id}
+          firstColumn={playerData.name}
+          secondColumn={playerData.position}
+          thirdColumn={playerData.nationality}
+        />
       )
     }
   });
@@ -82,15 +92,15 @@ function Table(props) {
           <tr>
             <TableHeader columnName={'Name'} sortData={sortData} sortedColumn={sortedColumn} sortedDirection={sortedDirection} />
             <TableHeader columnName={'Position'} sortData={sortData} sortedColumn={sortedColumn} sortedDirection={sortedDirection} />
+            <TableHeader columnName={'Nationality'} sortData={sortData} sortedColumn={sortedColumn} sortedDirection={sortedDirection} />
           </tr>
         </thead>
         <tbody>
           {tableRows}
         </tbody>
       </table>
-
     </div>
   );
 }
 
-export default Table;
+export default PlayersTable;

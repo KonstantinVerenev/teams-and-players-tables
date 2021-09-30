@@ -1,62 +1,30 @@
-import React, { useEffect, useState } from "react";
-import Preloader from "./components/Preloader/Preloader";
-import SearchBar from "./components/SearchBar/SearchBar";
-import Table from "./components/Table/Table";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Players from "./components/Players/Players";
+import TeamsTable from "./components/Teams/Table/TeamsTable";
 
 function App() {
-  const [teamData, setTeamData] = useState()
-  const [searchValue, setSearchValue] = useState('')
-  const [checkBoxValues, setCheckBoxValues] = useState({
-    goalkeeper: false,
-    defender: false,
-    midfielder: false,
-    attacker: false
-  })
-
-  useEffect(() => {
-    fetch('http://api.football-data.org/v2/teams/61', {
-      headers: {
-        'X-Auth-Token': '061f154cba17464c936d726dac2d34b2'
-      }
-    })
-      .then(response => response.json())
-      .then(response => setTeamData(response))
-  }, [])
-
-  const searchValueOnChange = (e) => {
-    setSearchValue(e.target.value)
-  }
-
-  const CheckBoxesOnChange = (e) => {
-    const position = e.target.name
-    setCheckBoxValues({
-      ...checkBoxValues,
-      [position]: !checkBoxValues[position]
-    })
-  }
-
-  if (!teamData) {
-    return <Preloader />
-  }
-
   return (
-    <div>
-      <div className='teamTitle'>
-        <b>{teamData.name}</b>
-        <img src={teamData.crestUrl} alt='logo' width='24' />
-      </div>
-      <SearchBar
-        searchValue={searchValue}
-        searchValueOnChange={searchValueOnChange}
-        checkBoxValues={checkBoxValues}
-        CheckBoxesOnChange={CheckBoxesOnChange}
-      />
-      <Table
-        teamData={teamData}
-        searchValue={searchValue}
-        checkBoxValues={checkBoxValues}
-      />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/players">
+            <Players />
+          </Route>
+          <Route path="/teams">
+            <TeamsTable />
+          </Route>
+          <Route path="/">
+            <TeamsTable />
+          </Route>
+        </Switch>
+      </div >
+    </Router>
   );
 }
 

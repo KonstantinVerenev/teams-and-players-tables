@@ -3,8 +3,9 @@ import React from "react";
 function TableRow(props) {
   return (
     <tr>
-      <td>{props.name}</td>
-      <td>{props.position}</td>
+      <td>{props.firstColumn}</td>
+      <td>{props.secondColumn}</td>
+      <td>{props.thirdColumn}</td>
     </tr>
   );
 }
