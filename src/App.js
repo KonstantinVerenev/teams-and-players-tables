@@ -2,28 +2,26 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Players from "./components/Players/Players";
-import TeamsTable from "./components/Teams/Table/TeamsTable";
+import Teams from "./components/Teams/Teams";
+import './App.css'
 
 function App() {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/players">
-            <Players />
-          </Route>
-          <Route path="/teams">
-            <TeamsTable />
-          </Route>
-          <Route path="/">
-            <TeamsTable />
-          </Route>
-        </Switch>
-      </div >
+      <Switch>
+        <Route path="/players/:teamId">
+          <Players />
+        </Route>
+        <Route path="/teams">
+          <Teams />
+        </Route>
+        <Route path="/">
+          <Teams />
+        </Route>
+      </Switch>
     </Router>
   );
 }

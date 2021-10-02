@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import './PlayersTable.css'
+import React, { useEffect, useState } from "react";
 import TableHeader from "./TableHeader/TableHeader";
 import TableRow from "./TableRow/TableRow";
+import style from "./PlayersTable.module.css"
 
 
 
@@ -10,8 +10,8 @@ function PlayersTable(props) {
   const [sortedColumn, setSortedColumn] = useState('')
   const [sortedDirection, setSortedDirection] = useState(true)
 
-  const sortData = (e) => {
-    const columnName = e.target.innerText.toLowerCase()
+  const sortData = (columnName) => {
+    // const columnName = e.target.innerText.toLowerCase()
 
     // sorting with null function
     function alphabetically(ascending, columnName) {
@@ -85,9 +85,14 @@ function PlayersTable(props) {
     }
   });
 
+  useEffect(() => {
+    sortData('name')
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <div>
-      <table>
+      <table className={style.playersTable}>
         <thead>
           <tr>
             <TableHeader columnName={'Name'} sortData={sortData} sortedColumn={sortedColumn} sortedDirection={sortedDirection} />

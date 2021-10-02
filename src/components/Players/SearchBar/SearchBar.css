@@ -1,5 +1,39 @@
-label {
+form {
+
+}
+form input {
+  padding: 10px 25px;
+  margin: 0 auto;
+  display: block;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 24px;
+  border-radius: 10px;
+  border: none;
+}
+form label {
+  margin: 10px 10px 0 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+  color: #36304a;;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  cursor: pointer;
+}
+form label input {
   margin-left: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+}
+.positionLabels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

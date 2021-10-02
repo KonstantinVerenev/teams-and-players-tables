@@ -1,0 +1,73 @@
+.wrapper {
+  min-width: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.playersTable {
+  min-width: 530px;
+  border: none;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+  position: relative;
+}
+.playersTable tbody td {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-bottom: 2px solid lightgrey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color:#36304a;
+  justify-content: left;
+  vertical-align: middle;
+}
+.playersTable thead tr {
+  height: 60px;
+  background: #50476d;
+}
+.playersTable tr th {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.playersTable tbody tr {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.playersTable tbody td a  {
+  display: flex;
+}
+.playersTable tbody td a {
+  padding: 10px 20px;
+  font-size: 30px;
+  border-bottom: 2px solid lightgrey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color:#36304a;
+  justify-content: left;
+  vertical-align: middle;
+}
+.playersTable tbody tr:nth-child(even) {
+  background-color: lightgrey;
+}
+.playersTable tbody tr:hover, .table tbody tr:nth-child(even):hover {
+  background-color:lightslategray;
+}
+.playersTable tbody tr a {
+  text-decoration: none;
+}
+.playersTable tbody td img {
+  margin-left: 5px;
+}
+.playersTable tbody tr:last-child td {
+  border: none;
+}

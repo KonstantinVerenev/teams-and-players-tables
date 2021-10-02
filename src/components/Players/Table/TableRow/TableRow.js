@@ -2,7 +2,7 @@ import React from "react";
 
 function TableRow(props) {
   return (
-    <tr>
+    <tr className='playerTr'>
       <td>{props.firstColumn}</td>
       <td>{props.secondColumn}</td>
       <td>{props.thirdColumn}</td>

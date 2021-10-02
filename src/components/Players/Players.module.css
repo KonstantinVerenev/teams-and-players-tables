@@ -1,0 +1,22 @@
+.wrapper {
+  min-width: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.teamTitle {
+  margin: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+.teamTitle b {
+  margin-right: 10px;
+}

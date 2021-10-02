@@ -1,0 +1,61 @@
+.wrapper {
+  min-width: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.table {
+  border: none;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+  position: relative;
+}
+.table thead tr {
+  height: 60px;
+  background: #50476d;
+}
+.table tr th {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.table tbody tr {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.2;
+  font-weight: unset;
+}
+.table tbody td a  {
+  display: flex;
+}
+.table tbody td a {
+  padding: 10px 20px;
+  font-size: 30px;
+  border-bottom: 2px solid lightgrey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color:#36304a;
+  justify-content: left;
+  vertical-align: middle;
+}
+.table tbody tr:nth-child(odd) {
+  background-color: lightgrey;
+}
+.table tbody tr:hover, .table tbody tr:nth-child(even):hover {
+  background-color:lightslategray;
+}
+.table tbody tr a {
+  text-decoration: none;
+}
+.table tbody td img {
+  margin-left: 5px;
+}
+.table tbody tr:last-child td {
+  border: none;
+}

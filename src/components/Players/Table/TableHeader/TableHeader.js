@@ -1,16 +1,16 @@
 import React from "react";
-import "./TableHeader.css"
+import style from "./TableHeader.module.css"
 
 function TableHeader(props) {
   if (props.sortedColumn === props.columnName.toLowerCase()) {
     return (
       <>
-        <th onClick={props.sortData} className={props.sortedDirection ? ' upArrow' : 'downArrow'}>{props.columnName}</th>
+        <th onClick={() => { props.sortData(props.columnName.toLowerCase()) }} className={props.sortedDirection ? style.upArrow : style.downArrow}>{props.columnName}</th>
       </>
     );
   } else {
     return (
-      <th onClick={props.sortData} className='disableArrows'>{props.columnName}</th>
+      <th onClick={() => { props.sortData(props.columnName.toLowerCase()) }} className={style.disableArrows}>{props.columnName}</th>
     );
   }
 
