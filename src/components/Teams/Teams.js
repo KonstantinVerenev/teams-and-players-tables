@@ -6,7 +6,7 @@ function Teams() {
   const [tableData, setTableData] = useState()
 
   useEffect(() => {
-    fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {
+    fetch(`https://api.football-data.org/v2/competitions/2021/standings`, {
       headers: {
         'X-Auth-Token': '061f154cba17464c936d726dac2d34b2'
       }

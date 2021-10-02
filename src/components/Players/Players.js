@@ -17,7 +17,7 @@ const PlayersPage = () => {
   const { teamId } = useParams()
 
   useEffect(() => {
-    fetch(`http://api.football-data.org/v2/teams/${teamId}`, {
+    fetch(`https://api.football-data.org/v2/teams/${teamId}`, {
       headers: {
         'X-Auth-Token': '061f154cba17464c936d726dac2d34b2'
       }
