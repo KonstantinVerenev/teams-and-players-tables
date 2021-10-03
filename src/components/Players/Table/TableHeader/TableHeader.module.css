@@ -5,17 +5,21 @@
   background-color: #50476d;
   padding-left: 20px;
   padding-right: 50px;
-  cursor: pointer;
+  cursor: pointer;  
 }
-
+@media (max-width: 600px) {
+  .disableArrows, .upArrow, .downArrow{
+    background-position: right 5px center;
+    padding-left: 2px;
+    padding-right: 35px;
+  }
+}
 .disableArrows {
   background-image: url(../../../../assets/images/down-arrow-disable.svg);
 }
-
 .upArrow {
   background-image: url(../../../../assets/images/up-arrow.svg);
 }
-  
 .downArrow {
   background-image: url(../../../../assets/images/down-arrow.svg);
 }

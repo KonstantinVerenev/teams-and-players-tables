@@ -10,7 +10,7 @@ function TeamsTable(props) {
       <tr key={teamData.team.id}>
         <td>
           <Link to={`/players/${teamData.team.id}`}>
-            {teamData.team.name}<img src={teamData.team.crestUrl} alt='logo' height='35px' />
+            <div>{teamData.team.name}</div><img src={teamData.team.crestUrl} alt='logo' height='45px' />
           </Link>
         </td>
       </tr >

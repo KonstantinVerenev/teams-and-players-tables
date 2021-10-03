@@ -1,5 +1,4 @@
-.wrapper {
-  min-width: 550px;
+.wrapper { 
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -32,6 +31,9 @@
 }
 .table tbody td a  {
   display: flex;
+  justify-content: left;
+  align-items: center;
+  vertical-align: middle;
 }
 .table tbody td a {
   padding: 10px 20px;
@@ -41,8 +43,6 @@
   border-left: none;
   border-right: none;
   color:#36304a;
-  justify-content: left;
-  vertical-align: middle;
 }
 .table tbody tr:nth-child(odd) {
   background-color: lightgrey;
@@ -54,7 +54,7 @@
   text-decoration: none;
 }
 .table tbody td img {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .table tbody tr:last-child td {
   border: none;

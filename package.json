@@ -1,8 +1,8 @@
 {
-  "name": "football-project",
+  "name": "teams-and-players-tables",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://konstantinverenevgithub.io/teams-and-players-tables",
+  "homepage": "https://konstantinverenev.github.io/teams-and-players-tables",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
